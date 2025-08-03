@@ -121,10 +121,6 @@ h1, h2, h3, h4, h5, h6 {
   padding: 3px;
 }
 
-.todo-list__message {
-  display: none;
-}
-
 .todo-list__task:last-child {
   margin-bottom: 0px;
 }
