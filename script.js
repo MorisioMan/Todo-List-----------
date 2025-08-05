@@ -3,6 +3,10 @@ const button = document.querySelector(".todo-list__button");
 
 button.addEventListener("click", () => addTaskToList(inputTask.value));
 
+function deleteTask(event) {
+   event.target.parentElement.remove();
+}
+
 function addTaskToList(taskText) {
    if (taskText === "") {
       alert("Напиши що хочеш зробити.");
@@ -16,6 +20,7 @@ function addTaskToList(taskText) {
       const text = document.createElement("p");
       const button = document.createElement("button");
 
+      button.addEventListener("click", deleteTask);
       checkbox.onclick = () => {
          if (checkbox.checked) {
             text.style.textDecoration = "line-through";
@@ -32,8 +37,6 @@ function addTaskToList(taskText) {
       task.classList.add("todo-list__task");
       listOfTasks.appendChild(task);
       task.append(checkbox, text, button);
-
-
    }
 }
 
