@@ -1,10 +1,20 @@
 const inputTask = document.querySelector(".todo-list__input");
 const button = document.querySelector(".todo-list__button");
+const listOfTasks = document.querySelector(".todo-list__list");
 
 button.addEventListener("click", () => addTaskToList(inputTask.value));
 
 function deleteTask(event) {
    event.target.parentElement.remove();
+   saveTask();
+}
+
+function saveTask() {
+   localStorage.setItem("task", listOfTasks.innerHTML);
+}
+
+function loadTask() {
+   listOfTasks.innerHTML = localStorage.getItem("task");
 }
 
 function addTaskToList(taskText) {
@@ -12,8 +22,6 @@ function addTaskToList(taskText) {
       alert("Напиши що хочеш зробити.");
    } else {
       inputTask.value = "";
-
-      const listOfTasks = document.querySelector(".todo-list__list");
 
       const task = document.createElement("div");
       const checkbox = document.createElement("input");
@@ -37,6 +45,8 @@ function addTaskToList(taskText) {
       task.classList.add("todo-list__task");
       listOfTasks.appendChild(task);
       task.append(checkbox, text, button);
+
+      saveTask();
    }
 }
-
+loadTask();
