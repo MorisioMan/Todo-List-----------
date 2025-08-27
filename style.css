@@ -88,8 +88,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .todo-list__input {
-  margin-bottom: 10px;
   padding: 3px;
+  margin-bottom: 10px;
   border-radius: 3px;
 }
 
@@ -123,4 +123,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .todo-list__task:last-child {
   margin-bottom: 0px;
+}
+
+.todo-list__task--done {
+  text-decoration: line-through;
+  color: gray;
 }
