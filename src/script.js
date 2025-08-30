@@ -8,7 +8,6 @@ function saveTask() {
 
 function loadTask() {
    listOfTask.innerHTML = localStorage.getItem("task");
-   saveTask();
 }
 
 button.addEventListener("click", function () {
@@ -16,14 +15,16 @@ button.addEventListener("click", function () {
       alert("Напиши що хочеш зробити.");
    } else {
       const task = document.createElement("div");
-      const checkbox = document.createElement("input");
+      const checkbox = document.createElement("img");
       const text = document.createElement("p");
       const button = document.createElement("button");
 
-      checkbox.type = "checkbox";
-      checkbox.name = "task";
+      checkbox.src = "../icons/checkbox-unchecked.svg";
       text.textContent = inputTask.value;
       button.textContent = "видалити";
+
+      button.setAttribute("id", "delete");
+      checkbox.setAttribute("id", "checkbox");
       
       task.classList.add("todo-list__task");
       listOfTask.appendChild(task);
@@ -34,9 +35,14 @@ button.addEventListener("click", function () {
 });
 
 listOfTask.addEventListener("click", function (event) {
-   console.log(event.target);
+   console.log(event);
    if (event.target.id === "delete") {
-      console.log("click");
+      event.target.parentElement.remove();
+      saveTask();
+   }
+   else if (event.target.id === "checkbox") {
+      event.target.parentElement.classList.add("done");
+      saveTask();
    }
 })
 

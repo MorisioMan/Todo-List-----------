@@ -107,8 +107,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 10px;
 }
 
-.todo-list__task input {
-  margin-right: 5px;
+.todo-list__task img {
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
 }
 
 .todo-list__task p {
@@ -125,7 +127,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0px;
 }
 
-.todo-list__task--done {
+.todo-list__task.done {
   text-decoration: line-through;
   color: gray;
 }
