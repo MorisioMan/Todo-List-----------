@@ -41,6 +41,7 @@ listOfTask.addEventListener("click", function (event) {
       saveTask();
    }
    else if (event.target.id === "checkbox") {
+      event.target.src = "../icons/checkbox-checked.svg";
       event.target.parentElement.classList.add("done");
       saveTask();
    }
