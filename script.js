@@ -33,4 +33,11 @@ button.addEventListener("click", function () {
    saveTask();
 });
 
+listOfTask.addEventListener("click", function (event) {
+   console.log(event.target);
+   if (event.target.id === "delete") {
+      console.log("click");
+   }
+})
+
 loadTask();
