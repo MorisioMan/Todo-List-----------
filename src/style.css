@@ -116,6 +116,7 @@ h1, h2, h3, h4, h5, h6 {
 .todo-list__task p {
   margin-right: 5px;
   padding: 3px;
+  align-self: flex-start;
 }
 
 .todo-list__task button {

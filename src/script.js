@@ -35,15 +35,20 @@ button.addEventListener("click", function () {
 });
 
 listOfTask.addEventListener("click", function (event) {
-   console.log(event);
    if (event.target.id === "delete") {
       event.target.parentElement.remove();
       saveTask();
    }
    else if (event.target.id === "checkbox") {
-      event.target.src = "../icons/checkbox-checked.svg";
-      event.target.parentElement.classList.add("done");
-      saveTask();
+      if (event.target.parentElement.classList[1] === "done") {
+         event.target.src = "../icons/checkbox-unchecked.svg";
+         event.target.parentElement.classList.remove("done");
+         saveTask();
+      } else {
+         event.target.src = "../icons/checkbox-checked.svg";
+         event.target.parentElement.classList.add("done");
+         saveTask();
+      }
    }
 })
 
