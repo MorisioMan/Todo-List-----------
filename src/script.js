@@ -40,13 +40,13 @@ listOfTask.addEventListener("click", function (event) {
       saveTask();
    }
    else if (event.target.id === "checkbox") {
-      if (event.target.parentElement.classList[1] === "done") {
+      if (event.target.parentElement.children[1].className === "done") {
          event.target.src = "../icons/checkbox-unchecked.svg";
-         event.target.parentElement.classList.remove("done");
+         event.target.parentElement.children[1].classList.remove("done");
          saveTask();
       } else {
          event.target.src = "../icons/checkbox-checked.svg";
-         event.target.parentElement.classList.add("done");
+         event.target.parentElement.children[1].classList.add("done");
          saveTask();
       }
    }

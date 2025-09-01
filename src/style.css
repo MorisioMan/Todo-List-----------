@@ -119,6 +119,11 @@ h1, h2, h3, h4, h5, h6 {
   align-self: flex-start;
 }
 
+.todo-list__task p.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
 .todo-list__task button {
   background-color: burlywood;
   padding: 3px;
@@ -126,9 +131,4 @@ h1, h2, h3, h4, h5, h6 {
 
 .todo-list__task:last-child {
   margin-bottom: 0px;
-}
-
-.todo-list__task.done {
-  text-decoration: line-through;
-  color: gray;
 }
