@@ -87,6 +87,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 5px;
 }
 
+.todo-list__filtres {
+  margin-bottom: 10px;
+}
+
 .todo-list__input {
   padding: 3px;
   margin-bottom: 10px;
@@ -124,7 +128,8 @@ h1, h2, h3, h4, h5, h6 {
   color: gray;
 }
 
-.todo-list__task button {
+.todo-list__task button,
+.todo-list__filtres button {
   background-color: burlywood;
   padding: 3px;
 }

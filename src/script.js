@@ -1,6 +1,15 @@
+//TODO: замінити кнопки видалення на схестики
+//TODO: зробити щоб хрестики завжди були в кінці
+//TODO: дадати обмеження ширини для блоку із завданями
+//TODO: зробити щоб додавання завдання відбувалося через клавішу Enter
+
 const inputTask = document.querySelector(".todo-list__input");
 const button = document.querySelector(".todo-list__button");
 const listOfTask = document.querySelector(".todo-list__list");
+const filtres = document.querySelector(".todo-list__filtres");
+
+const completedTasks = [];
+const activeTasks = [];
 
 function saveTask() {
    localStorage.setItem("task", listOfTask.innerHTML);
@@ -49,6 +58,20 @@ listOfTask.addEventListener("click", function (event) {
          event.target.parentElement.children[1].classList.add("done");
          saveTask();
       }
+   }
+})
+
+filtres.addEventListener("click", function (event) {
+   switch (event.target.id) {
+      case "all":
+         console.log("all");
+         break;
+      case "active":
+         console.log("active");
+         break;
+      case "completed":
+         console.log("completed");
+         break;
    }
 })
 
