@@ -49,13 +49,21 @@ listOfTask.addEventListener("click", function (event) {
       saveTask();
    }
    else if (event.target.id === "checkbox") {
-      if (event.target.parentElement.children[1].className === "done") {
+      if (event.target.parentElement.classList[1] === "done") {
          event.target.src = "../icons/checkbox-unchecked.svg";
-         event.target.parentElement.children[1].classList.remove("done");
+         event.target.parentElement.classList.remove("done");
+         event.target.parentElement.children[1].style = `
+            text-decoration: none;
+            color: #000;
+         `
          saveTask();
       } else {
          event.target.src = "../icons/checkbox-checked.svg";
-         event.target.parentElement.children[1].classList.add("done");
+         event.target.parentElement.classList.add("done");
+         event.target.parentElement.children[1].style = `
+            text-decoration: line-through;
+            color: gray;
+         `
          saveTask();
       }
    }
@@ -67,7 +75,8 @@ filtres.addEventListener("click", function (event) {
          console.log("all");
          break;
       case "active":
-         console.log("active");
+         const arrayTask = document.getElementsByClassName("todo-list__task");
+         console.log(arrayTask);
          break;
       case "completed":
          console.log("completed");
