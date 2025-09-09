@@ -75,8 +75,14 @@ filtres.addEventListener("click", function (event) {
          console.log("all");
          break;
       case "active":
-         const arrayTask = document.getElementsByClassName("todo-list__task");
+         const arrayTask = document.querySelectorAll(".todo-list__task");
          console.log(arrayTask);
+         arrayTask.forEach(element => {
+            if (element.classList[1] !== "done") {
+               console.log(element);
+               
+            }
+         })
          break;
       case "completed":
          console.log("completed");
