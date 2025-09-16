@@ -10,13 +10,15 @@ const filtres = document.querySelector(".todo-list__filtres");
 
 const completedTasks = [];
 const activeTasks = [];
+const allTasks = [];
 
 function saveTask() {
-   localStorage.setItem("task", listOfTask.innerHTML);
+   localStorage.setItem("task", allTasks);
 }
 
 function loadTask() {
-   listOfTask.innerHTML = localStorage.getItem("task");
+   const arrayTask = localStorage.getItem("task");
+   console.log(arrayTask);
 }
 
 button.addEventListener("click", function () {
@@ -38,6 +40,8 @@ button.addEventListener("click", function () {
       task.classList.add("todo-list__task");
       listOfTask.appendChild(task);
       task.append(checkbox, text, button);
+
+      allTasks.push(task);
    }
    inputTask.value = "";
    saveTask();
@@ -70,18 +74,21 @@ listOfTask.addEventListener("click", function (event) {
 })
 
 filtres.addEventListener("click", function (event) {
+   allTasks.forEach(element => {
+      if (element.classList[1] !== "done") {
+         activeTasks.push(element);
+      } else if (element.classList[1] === "done") {
+         completedTasks.push(element);
+      }
+   })
    switch (event.target.id) {
       case "all":
-         console.log("all");
+         console.log(listOfTask.innerHTML);
          break;
       case "active":
-         const arrayTask = document.querySelectorAll(".todo-list__task");
-         console.log(arrayTask);
-         arrayTask.forEach(element => {
-            if (element.classList[1] !== "done") {
-               console.log(element);
-               
-            }
+         listOfTask.innerHTML = ``;
+         activeTasks.forEach((element) => {
+            listOfTask.innerHTML += element.outerHTML;
          })
          break;
       case "completed":
