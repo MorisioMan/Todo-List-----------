@@ -1,7 +1,8 @@
 //TODO: замінити кнопки видалення на схестики
 //TODO: зробити щоб хрестики завжди були в кінці
-//TODO: дадати обмеження ширини для блоку із завданями
+//TODO: додати обмеження ширини для блоку із завданями
 //TODO: зробити щоб додавання завдання відбувалося через клавішу Enter
+//TODO: добавити напис "завдань немає" коли завдань немає
 
 const inputTask = document.querySelector(".todo-list__input");
 const button = document.querySelector(".todo-list__button");
@@ -10,14 +11,21 @@ const filtres = document.querySelector(".todo-list__filtres");
 
 const completedTasks = [];
 const activeTasks = [];
-const allTasks = [];
+const sessionTasks = [];
 
 function saveTask() {
-   localStorage.setItem("task", allTasks);
+   const loadTasks = localStorage.getItem("task");
+   let changeTask;
+   sessionTasks.forEach(element => {
+      changeTask = loadTasks + element;
+   })
+   localStorage.setItem("task", changeTask);
 }
 
 function loadTask() {
    const arrayTask = localStorage.getItem("task");
+   listOfTask.innerHTML = arrayTask;
+   console.log(typeof(arrayTask));
    console.log(arrayTask);
 }
 
@@ -41,7 +49,8 @@ button.addEventListener("click", function () {
       listOfTask.appendChild(task);
       task.append(checkbox, text, button);
 
-      allTasks.push(task);
+      sessionTasks.push(task.outerHTML);
+      console.log(sessionTasks);
    }
    inputTask.value = "";
    saveTask();
